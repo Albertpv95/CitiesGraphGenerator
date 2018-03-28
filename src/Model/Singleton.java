@@ -32,6 +32,11 @@ public class Singleton {
         this.cities = cities;
     }
 
+    public void addCity(City city) {
+
+        this.cities.add(city);
+    }
+
     public void appendCities(List<City> cities) {
 
         this.cities.addAll(cities);

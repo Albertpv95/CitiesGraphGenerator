@@ -8,19 +8,27 @@
 
 package Controller;
 
+import Model.City;
+import Model.Singleton;
+import Network.GeocodeParser;
 import Network.HttpRequest;
 import Network.WSGoogleMaps;
 import View.MainView;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CitiesController implements ActionListener {
 
     private MainView view;
 
     private WSGoogleMaps wsGoogle;
+
+    private List<City> currentCities;
 
     public CitiesController(MainView view) {
 
@@ -38,7 +46,14 @@ public class CitiesController implements ActionListener {
 
             case ADD_CITY:
 
+                int index = view.getSelectedCityResultIndex();
+                City selected = currentCities.get(index);
+                Singleton singleton = Singleton.getInstance();
+                singleton.addCity(selected);
 
+                view.clearCityText();
+                view.clearCityResults();
+                
                 break;
 
             case SEARCH_CITY:
@@ -48,8 +63,16 @@ public class CitiesController implements ActionListener {
                     @Override
                     public void onSuccess(String data) {
 
-                        System.out.println("Result is:");
-                        System.out.println(data);
+                        currentCities = GeocodeParser.getCityData(data);
+                        for (City c : currentCities)
+                            System.out.println(c.toString());
+
+                        List<String> namesList = currentCities.stream()
+                                .map(City::getAddress)
+                                .collect(Collectors.toList());
+
+                        view.fillCityResults(namesList);
+
                     }
 
                     @Override

@@ -15,6 +15,8 @@ public class MainView extends JFrame {
 
     private JTextField jtCity;
     private DefaultListModel<String> citiesResult;
+    private JList<String> jlResults;
+
     private JButton jbAddCity;
     private JButton jbSearch;
 
@@ -58,6 +60,17 @@ public class MainView extends JFrame {
             this.citiesResult.addElement(r);
     }
 
+    public void clearCityResults() {
+
+        this.citiesResult.clear();
+    }
+
+    public int getSelectedCityResultIndex() {
+
+        return jlResults.getSelectedIndex();
+    }
+
+
     private JPanel createAddCityPanel() {
 
         JPanel jpAll = new JPanel();
@@ -78,7 +91,7 @@ public class MainView extends JFrame {
 
         JLabel jl2 = new JLabel("Choose the right result");
         citiesResult = new DefaultListModel<>();
-        JList<String> jlResults = new JList<>(citiesResult);
+        jlResults = new JList<>(citiesResult);
         jlResults.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         c.gridx = 0;

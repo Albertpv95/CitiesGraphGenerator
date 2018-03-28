@@ -1,21 +1,24 @@
 
 package Model;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.Arrays;
 
 public class City {
 
-    private String code;
     private String name;
+    @Expose private String address;
     private String country;
-    private double location[];
+    private double latitude;
+    private double longitude;
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+    public City(String name, String address, String country, double latitude, double longitude) {
+        this.name = name;
+        this.address = address;
+        this.country = country;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getName() {
@@ -26,6 +29,14 @@ public class City {
         this.name = name;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getCountry() {
         return country;
     }
@@ -34,22 +45,30 @@ public class City {
         this.country = country;
     }
 
-    public double[] getLocation() {
-        return location;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setLocation(double[] location) {
-        this.location = location;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     @Override
     public String toString() {
         return "City{" +
-                "code='" + code + '\'' +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
                 ", country='" + country + '\'' +
-                ", location=" + Arrays.toString(location) +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
                 '}';
     }
-
 }
