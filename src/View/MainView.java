@@ -27,6 +27,12 @@ public class MainView extends JFrame {
     private JList<String> jlCities2;
     private JButton jbAddRoute;
 
+    /* ****** MENU ****** */
+    private JMenuItem jmiImport;
+    private JMenuItem jmiSave;
+    private JMenuItem jmiSaveAs;
+    private JMenuItem jmAbout;
+
 
     public MainView() {
 
@@ -60,6 +66,22 @@ public class MainView extends JFrame {
 
         this.jbAddRoute.addActionListener(listener);
         this.jbAddRoute.setActionCommand(Actions.ADD_ROUTE.toString());
+    }
+
+    public void addMenuListeners(ActionListener listener) {
+
+        this.jmiImport.addActionListener(listener);
+        this.jmiImport.setActionCommand(Actions.OPEN_FILE.toString());
+
+        this.jmiSave.addActionListener(listener);
+        this.jmiSave.setActionCommand(Actions.SAVE_FILE.toString());
+
+        this.jmiSaveAs.addActionListener(listener);
+        this.jmiSaveAs.setActionCommand(Actions.SAVE_AS_FILE.toString());
+
+        this.jmAbout.addActionListener(listener);
+        this.jmAbout.setActionCommand(Actions.ABOUT.toString());
+
     }
 
     public String getCityText() {
@@ -213,10 +235,10 @@ public class MainView extends JFrame {
         JMenuBar jmBar = new JMenuBar();
 
         JMenu jmSettings    = new JMenu("File");
-        JMenuItem jmiImport = new JMenuItem("Open");
-        JMenuItem jmiSave   = new JMenuItem("Save");
-        JMenuItem jmiSaveAs = new JMenuItem("Save as...");
-        JMenuItem jmAbout = new JMenuItem("About");
+        jmiImport = new JMenuItem("Open");
+        jmiSave   = new JMenuItem("Save");
+        jmiSaveAs = new JMenuItem("Save as...");
+        jmAbout = new JMenuItem("About");
 
         jmSettings.add(jmiImport);
         jmSettings.addSeparator();
