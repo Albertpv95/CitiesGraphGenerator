@@ -14,6 +14,7 @@ public class Singleton {
 
     private Singleton() {
 
+        connections = new ArrayList<>();
         cities = new ArrayList<>();
     }
 

@@ -14,6 +14,7 @@ public class WSGoogleMaps {
 
     private static final String WS_ADDRESS      = "https://maps.googleapis.com/maps/api/";
     private static final String API_GEO         = "geocode/json?";
+    private static final String API_DISTANCE    = "distancematrix/json?";
 
     private static final String API_KEY         = "AIzaSyBEQR1OfnE7BreWVxWCrP6lgZcaE3U6fuQ";
 
@@ -34,6 +35,27 @@ public class WSGoogleMaps {
         request.get(WS_ADDRESS + API_GEO, getData, reply);
     }
 
+    public void distance(double srcLatitude, double srcLongitude, double destLatitude[], double destLongitude[], HttpRequest.HttpReply reply) {
+
+        assert destLatitude.length == destLongitude.length;
+
+        StringBuilder destinations = new StringBuilder();
+
+        for (int i = 0; i < destLatitude.length; i++) {
+
+            destinations.append(destLatitude[i]);
+            destinations.append(",");
+            destinations.append(destLongitude[i]);
+            if (i < destLatitude.length - 1) destinations.append("|");
+        }
+
+        HashMap<String, String> getData = prepareParameters(
+                new String[]{"origins", "destinations", "key"},
+                new String[]{srcLatitude + "," + srcLongitude, destinations.toString(), API_KEY}
+        );
+
+        request.get(WS_ADDRESS + API_DISTANCE, getData, reply);
+    }
 
     private HashMap<String, String> prepareParameters(String []keys, String []values) {
 

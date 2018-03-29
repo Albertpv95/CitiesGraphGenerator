@@ -3,6 +3,7 @@ package View;
 import Controller.Actions;
 
 import javax.swing.*;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -12,6 +13,7 @@ public class MainView extends JFrame {
     private static final int DIM_HEIGHT = 350;
     private static final int DIM_WIDTH  = 600;
 
+    private JTabbedPane jtPane;
 
     private JTextField jtCity;
     private DefaultListModel<String> citiesResult;
@@ -21,7 +23,10 @@ public class MainView extends JFrame {
     private JButton jbSearch;
 
     private DefaultListModel<String> cities;
+    private JList<String> jlCities;
+    private JList<String> jlCities2;
     private JButton jbAddRoute;
+
 
     public MainView() {
 
@@ -35,6 +40,11 @@ public class MainView extends JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    public boolean isConnectionsPanelVisible() {
+
+        return jtPane.getSelectedIndex() == 1;
+    }
+
     public void addCityPanelListeners(ActionListener listener) {
 
         this.jbAddCity.addActionListener(listener);
@@ -42,6 +52,14 @@ public class MainView extends JFrame {
 
         this.jbSearch.addActionListener(listener);
         this.jbSearch.setActionCommand(Actions.SEARCH_CITY.toString());
+    }
+
+    public void addConnectionsPanelListeners(ActionListener listener, ChangeListener changeListener) {
+
+        this.jtPane.addChangeListener(changeListener);
+
+        this.jbAddRoute.addActionListener(listener);
+        this.jbAddRoute.setActionCommand(Actions.ADD_ROUTE.toString());
     }
 
     public String getCityText() {
@@ -70,6 +88,26 @@ public class MainView extends JFrame {
         return jlResults.getSelectedIndex();
     }
 
+    public void clearRoutesPanelCities() {
+
+        cities.clear();
+    }
+
+    public void fillRoutesPanelCities(List<String> addresses) {
+
+        for (String s : addresses)
+            cities.addElement(s);
+    }
+
+    public int getRouteFirstSelectedCityIndex() {
+
+        return jlCities.getSelectedIndex();
+    }
+
+    public int[] getRouteSecondSelectedCityIndices() {
+
+        return jlCities2.getSelectedIndices();
+    }
 
     private JPanel createAddCityPanel() {
 
@@ -137,7 +175,7 @@ public class MainView extends JFrame {
         c.fill = GridBagConstraints.BOTH;
         c.gridy = 1;
         this.cities = new DefaultListModel<>();
-        JList<String> jlCities = new JList<>(cities);
+        jlCities = new JList<>(cities);
         jlCities.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         JScrollPane jsp1 = new JScrollPane(jlCities);
         jpAll.add(jsp1, c);
@@ -153,7 +191,7 @@ public class MainView extends JFrame {
         c.weighty = 1.0;
         c.fill = GridBagConstraints.BOTH;
         c.gridy = 1;
-        JList<String> jlCities2 = new JList<>(cities);
+        jlCities2 = new JList<>(cities);
         jlCities2.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         JScrollPane jsp2 = new JScrollPane(jlCities2);
         jpAll.add(jsp2, c);
@@ -194,7 +232,7 @@ public class MainView extends JFrame {
 
     private JTabbedPane createTabs() {
 
-        JTabbedPane jtPane = new JTabbedPane();
+        jtPane = new JTabbedPane();
 
         JPanel jp1 = createAddCityPanel();
         jtPane.addTab("Add city", jp1);

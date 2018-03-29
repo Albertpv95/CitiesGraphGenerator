@@ -12,8 +12,15 @@ public class Connection {
 
     private String city1;
     private String city2;
-    private float  distance;    // km
-    private float  duration;
+    private int distance;    // meters
+    private int duration;       // seconds
+
+    public Connection(String city1, String city2, int distance, int duration) {
+        this.city1 = city1;
+        this.city2 = city2;
+        this.distance = distance;
+        this.duration = duration;
+    }
 
     public String getCity1() {
         return city1;
@@ -31,19 +38,19 @@ public class Connection {
         this.city2 = city2;
     }
 
-    public float getDistance() {
+    public int getDistance() {
         return distance;
     }
 
-    public void setDistance(float distance) {
+    public void setDistance(int distance) {
         this.distance = distance;
     }
 
-    public float getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(float duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 

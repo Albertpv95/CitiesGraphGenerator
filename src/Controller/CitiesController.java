@@ -16,7 +16,6 @@ import Network.WSGoogleMaps;
 import View.MainView;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -53,7 +52,7 @@ public class CitiesController implements ActionListener {
 
                 view.clearCityText();
                 view.clearCityResults();
-                
+
                 break;
 
             case SEARCH_CITY:

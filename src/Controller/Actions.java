@@ -16,7 +16,8 @@ public enum Actions {
     OPEN_FILE,
     SAVE_FILE,
     SAVE_AS_FILE,
-    ABOUT
+    ABOUT,
 
+    ADD_ROUTE
 
 }

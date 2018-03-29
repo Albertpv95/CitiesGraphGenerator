@@ -23,8 +23,10 @@ public class Main {
 
                 MainView view = new MainView();
                 CitiesController citiesController = new CitiesController(view);
+                ConnectionsController connectionsController = new ConnectionsController(view);
 
                 view.addCityPanelListeners(citiesController);
+                view.addConnectionsPanelListeners(connectionsController, connectionsController);
             }
         });
 
