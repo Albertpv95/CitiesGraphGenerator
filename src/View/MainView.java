@@ -8,6 +8,11 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+/**
+ * @author Albertpv
+ * @since 1.0
+ * @version 1.0
+ */
 public class MainView extends JFrame {
 
     private static final int DIM_HEIGHT = 350;

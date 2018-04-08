@@ -1,10 +1,12 @@
-
 package Model;
 
 import com.google.gson.annotations.Expose;
 
-import java.util.Arrays;
-
+/**
+ * @author Albertpv
+ * @since 1.0
+ * @version 1.0
+ */
 public class City {
 
     private String name;

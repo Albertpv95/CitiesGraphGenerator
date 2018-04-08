@@ -1,11 +1,3 @@
-/*
- * Copyright (c) 2018. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
- */
-
 package Network;
 
 import java.io.BufferedReader;
@@ -16,6 +8,15 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
 
+/**
+ * <p>HttpRequest can be used to get information from any open Web Service.
+ * This implementation only can send request via GET method because of the
+ * needs for this System.</p>
+ *
+ * @author Albertpv
+ * @since 1.0
+ * @version 1.0
+ */
 public class HttpRequest {
 
     public interface HttpReply {

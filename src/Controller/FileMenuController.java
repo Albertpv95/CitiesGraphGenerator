@@ -1,11 +1,3 @@
-/*
- * Copyright (c) 2018. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
- */
-
 package Controller;
 
 import Model.FileManager;
@@ -18,6 +10,16 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * <p>An instance of this class will be able to open and save files
+ * as well as remember the working path so the user won't need to
+ * put it every time since it is saved.</p>
+ *
+ *
+ * @author Albertpv
+ * @since 1.0
+ * @version 1.0
+ */
 public class FileMenuController implements ActionListener {
 
     private MainView view;
@@ -92,7 +94,25 @@ public class FileMenuController implements ActionListener {
             workingPath = fileToSave.getAbsolutePath();
         }
 
-        FileManager.openGraph(workingPath, false);
+        Singleton singleton = Singleton.getInstance();
+
+        if (singleton.getCities().isEmpty())
+            FileManager.openGraph(workingPath, false);
+        else {
+            Object []options = {"Yes", "No"};
+
+            int decision = JOptionPane.showOptionDialog(fileChooser,
+                    "Would you like to keep the current results obtained?",
+                            "Keep current results or override",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            options,
+                            options[0]
+                    );
+            if (decision == 0) FileManager.openGraph(workingPath, true);
+            else FileManager.openGraph(workingPath, false);
+        }
     }
 
     private void saveAs() {

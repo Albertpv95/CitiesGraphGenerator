@@ -5,6 +5,11 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Albertpv
+ * @since 1.0
+ * @version 1.0
+ */
 public class Singleton {
 
     private List<City> cities; // temporal, it will be a hashmap

@@ -10,6 +10,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * @author Albertpv
+ * @since 1.0
+ * @version 1.0
+ */
 public class FileManager {
 
     public static void saveGraph(String filename, List<City> cities, List<Connection> connections) throws IOException {

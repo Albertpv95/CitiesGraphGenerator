@@ -1,18 +1,15 @@
-/*
- * Copyright (c) 2018. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
- */
-
 package Model;
 
+/**
+ * @author Albertpv
+ * @since 1.0
+ * @version 1.0
+ */
 public class Connection {
 
     private String city1;
     private String city2;
-    private int distance;    // meters
+    private int distance;       // meters
     private int duration;       // seconds
 
     public Connection(String city1, String city2, int distance, int duration) {
