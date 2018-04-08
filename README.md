@@ -77,6 +77,8 @@ provided below:
 }
 ```
 
+**Distance value** is expressed in meters and the **route duration** is expressed in seconds.
+
 ## GUI
 
 A brief explanation of the GUI is described here. There are two main views,
