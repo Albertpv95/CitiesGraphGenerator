@@ -131,7 +131,7 @@ git clone https://github.com/Albertpv95/CitiesGraphGenerator.git
 ## Setup
 
 To use this tool, you will need to set the API Key value you got on 
-![Google Maps API get Key website](https://developers.google.com/maps/documentation/geocoding/get-api-key)
+[Google Maps API get Key website](https://developers.google.com/maps/documentation/geocoding/get-api-key)
 to the constant ```API_KEY```. This constant is defined inside ```WSGoogleMaps``` 
 class (path: ```src/main/java/Network/WSGoogleMaps```). 
 
