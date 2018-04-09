@@ -104,8 +104,6 @@ existing JSON files to the system.
 
 ## Download
 
-You can ```clone``` the project or import it using Maven.
-
 
 ### Clone
 
@@ -114,21 +112,7 @@ Just write the command below on your terminal.
 git clone https://github.com/Albertpv95/CitiesGraphGenerator.git
 ```
 
-### Maven
-```xml
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.albertpv.app</groupId>
-    <artifactId>CitiesGraphGenerator</artifactId>
-    <version>1.0</version>
-
-</project>
-```
-
-## Setup
+### Setup
 
 To use this tool, you will need to set the API Key value you got on 
 [Google Maps API get Key website](https://developers.google.com/maps/documentation/geocoding/get-api-key)
