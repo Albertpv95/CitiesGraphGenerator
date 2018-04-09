@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 
 /**
  * @author Albertpv
- * @since 1.8+
  * @version 1.0
  */
 public class ConnectionsController implements ActionListener, ChangeListener {

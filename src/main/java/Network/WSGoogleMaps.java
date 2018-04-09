@@ -9,7 +9,6 @@ import java.util.HashMap;
  *
  *
  * @author Albertpv
- * @since 1.8+
  * @version 1.0
  */
 public class WSGoogleMaps {
@@ -22,7 +21,7 @@ public class WSGoogleMaps {
      * This constant must be modified with the KEY value got
      * at <a href="https://developers.google.com/maps/documentation/geocoding/get-api-key">Get API Key</a>.
      */
-    private static final String API_KEY         = "<PUT YOUR API KEY HERE!>";
+    private static final String API_KEY         = "<PUT YOU KEY HERE>";
 
     private HttpRequest request;
 

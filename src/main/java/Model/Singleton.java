@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * @author Albertpv
- * @since 1.8+
  * @version 1.0
  */
 public class Singleton {

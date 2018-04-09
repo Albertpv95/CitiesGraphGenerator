@@ -47,31 +47,31 @@ provided below:
       "longitude": -3.7037902
     },
     {
-      "name": "Málaga",
-      "address": "Málaga, Spain",
+      "name": "Mataró",
+      "address": "Mataró, Barcelona, Spain",
       "country": "ES",
-      "latitude": 36.7212737,
-      "longitude": -4.4213988
+      "latitude": 41.5381124,
+      "longitude": 2.4447406
     }
   ],
   "connections": [
     {
-      "city1": "Barcelona",
-      "city2": "Madrid",
-      "distance": 623866,
-      "duration": 21734
+      "from": "Barcelona",
+      "to": "Madrid",
+      "distance": 629423,
+      "duration": 21960
     },
     {
-      "city1": "Madrid",
-      "city2": "Málaga",
-      "distance": 528784,
-      "duration": 18812
+      "from": "Barcelona",
+      "to": "Mataró",
+      "distance": 33997,
+      "duration": 2334
     },
     {
-      "city1": "Barcelona",
-      "city2": "Málaga",
-      "distance": 968261,
-      "duration": 33961
+      "from": "Madrid",
+      "to": "Barcelona",
+      "distance": 624634,
+      "duration": 21498
     }
   ]
 }

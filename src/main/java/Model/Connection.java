@@ -2,37 +2,36 @@ package Model;
 
 /**
  * @author Albertpv
- * @since 1.8+
  * @version 1.0
  */
 public class Connection {
 
-    private String city1;
-    private String city2;
+    private String from;
+    private String to;
     private int distance;       // meters
     private int duration;       // seconds
 
-    public Connection(String city1, String city2, int distance, int duration) {
-        this.city1 = city1;
-        this.city2 = city2;
+    public Connection(String from, String to, int distance, int duration) {
+        this.from = from;
+        this.to = to;
         this.distance = distance;
         this.duration = duration;
     }
 
-    public String getCity1() {
-        return city1;
+    public String getFrom() {
+        return from;
     }
 
-    public void setCity1(String city1) {
-        this.city1 = city1;
+    public void setFrom(String from) {
+        this.from = from;
     }
 
-    public String getCity2() {
-        return city2;
+    public String getTo() {
+        return to;
     }
 
-    public void setCity2(String city2) {
-        this.city2 = city2;
+    public void setTo(String to) {
+        this.to = to;
     }
 
     public int getDistance() {
@@ -54,8 +53,8 @@ public class Connection {
     @Override
     public String toString() {
         return "Connection{" +
-                "city1='" + city1 + '\'' +
-                ", city2='" + city2 + '\'' +
+                "from='" + from + '\'' +
+                ", to='" + to + '\'' +
                 ", distance=" + distance +
                 ", duration=" + duration +
                 '}';

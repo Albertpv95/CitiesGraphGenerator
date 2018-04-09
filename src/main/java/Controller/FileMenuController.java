@@ -17,7 +17,6 @@ import java.io.IOException;
  *
  *
  * @author Albertpv
- * @since 1.8+
  * @version 1.0
  */
 public class FileMenuController implements ActionListener {

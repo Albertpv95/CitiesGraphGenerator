@@ -14,7 +14,6 @@ import java.util.HashMap;
  * needs for this System.</p>
  *
  * @author Albertpv
- * @since 1.8+
  * @version 1.0
  */
 public class HttpRequest {

@@ -6,7 +6,6 @@ import javax.swing.*;
 
 /**
  * @author Albertpv
- * @since 1.8+
  * @version 1.0
  */
 public class Main {

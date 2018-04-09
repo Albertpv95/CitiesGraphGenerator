@@ -20,7 +20,6 @@ import java.util.stream.Collectors;
  *
  * @see WSGoogleMaps
  *
- * @since 1.8+
  * @version 1.0
  */
 public class CitiesController implements ActionListener {
