@@ -106,6 +106,15 @@ existing JSON files to the system.
 
 You can ```clone``` the project or import it using Maven.
 
+
+### Clone
+
+Just write the command below on your terminal.
+```bash
+git clone https://github.com/Albertpv95/CitiesGraphGenerator.git
+```
+
+### Maven
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -118,3 +127,12 @@ You can ```clone``` the project or import it using Maven.
 
 </project>
 ```
+
+## Setup
+
+To use this tool, you will need to set the API Key value you got on 
+![Google Maps API get Key website](https://developers.google.com/maps/documentation/geocoding/get-api-key)
+to the constant ```API_KEY```. This constant is defined inside ```WSGoogleMaps``` 
+class (path: ```src/main/java/Network/WSGoogleMaps```). 
+
+After that, you are ready to run the project and use it!
