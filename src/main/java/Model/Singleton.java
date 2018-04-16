@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Singleton {
 
-    private List<City> cities; // temporal, it will be a hashmap
+    private List<City> cities;
     private List<Connection> connections;
 
     private static Singleton instance;

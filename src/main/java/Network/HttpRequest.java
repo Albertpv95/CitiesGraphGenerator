@@ -107,7 +107,7 @@ public class HttpRequest {
      * @param parameters    The parameters to send with the request.
      * @param reply         Callback.
      */
-    public void get(String link, HashMap<String, String> parameters, HttpReply reply) {
+    protected void get(String link, HashMap<String, String> parameters, HttpReply reply) {
 
         try {
             link += getParameters(parameters);

@@ -5,6 +5,7 @@ import Model.Singleton;
 import View.MainView;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -23,14 +24,16 @@ public class FileMenuController implements ActionListener {
 
     private MainView view;
     private JFileChooser fileChooser;
+    private ConnectionsController connectionsController;
 
     private String workingPath;
 
-    public FileMenuController(MainView view) {
+    public FileMenuController(MainView view, ConnectionsController connectionsController) {
 
         this.view = view;
         this.fileChooser = new JFileChooser();
         this.workingPath = "";
+        this.connectionsController = connectionsController;
     }
 
 
@@ -52,6 +55,7 @@ public class FileMenuController implements ActionListener {
                 case SAVE_FILE:
 
                     save();
+                    showSuccessOperation();
 
                     break;
 
@@ -64,13 +68,10 @@ public class FileMenuController implements ActionListener {
 
                 case ABOUT:
 
+                    showAbout();
                     break;
             }
 
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Operation done successfully!"
-            );
 
         } catch (IOException ex) {
 
@@ -83,6 +84,15 @@ public class FileMenuController implements ActionListener {
         }
     }
 
+    private void showSuccessOperation() {
+
+
+        JOptionPane.showMessageDialog(
+                null,
+                "Operation done successfully!"
+        );
+    }
+
     private void open() throws IOException {
 
         fileChooser.setDialogTitle("Specify a file to open");
@@ -92,6 +102,7 @@ public class FileMenuController implements ActionListener {
             File fileToSave = fileChooser.getSelectedFile();
             workingPath = fileToSave.getAbsolutePath();
         }
+        else return; // cancel
 
         Singleton singleton = Singleton.getInstance();
 
@@ -110,8 +121,16 @@ public class FileMenuController implements ActionListener {
                             options[0]
                     );
             if (decision == 0) FileManager.openGraph(workingPath, true);
-            else FileManager.openGraph(workingPath, false);
+            else {
+
+                view.clearCityResults();
+                view.clearRoutesPanelCities();
+                FileManager.openGraph(workingPath, false);
+            }
+            connectionsController.stateChanged(new ChangeEvent(view));
         }
+
+        showSuccessOperation();
     }
 
     private void saveAs() {
@@ -122,6 +141,7 @@ public class FileMenuController implements ActionListener {
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = fileChooser.getSelectedFile();
             workingPath = fileToSave.getAbsolutePath();
+            showSuccessOperation();
         }
     }
 
@@ -135,5 +155,13 @@ public class FileMenuController implements ActionListener {
         Singleton singleton = Singleton.getInstance();
 
         FileManager.saveGraph(workingPath, singleton.getCities(), singleton.getConnections());
+    }
+
+    private void showAbout() {
+
+        JOptionPane.showMessageDialog(view,
+                "© Developed by Albert Pernía Vázquez (Albertpv)\n" +
+                        "La Salle Universitat Ramon Llull\n" +
+                        "Enginyeria - Programació Avançada i Estructura de Dades");
     }
 }

@@ -113,10 +113,22 @@ public class ConnectionsController implements ActionListener, ChangeListener {
 
             case ADD_ROUTE:
 
-                List<City> cities = singleton.getCities();
-                City first = cities.get(view.getRouteFirstSelectedCityIndex());
+                int index = view.getRouteFirstSelectedCityIndex();
 
                 int []indices = view.getRouteSecondSelectedCityIndices();
+
+                if (index == -1 || indices.length == 0) {
+                    JOptionPane.showMessageDialog(view,
+                            "Select a route before trying to add one",
+                            "Error creating the route",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+                    return;
+                }
+
+                List<City> cities = singleton.getCities();
+                City first = cities.get(index);
+
                 double []lat = new double[indices.length];
                 double []lng = new double[indices.length];
                 fillDestinations(cities, indices, lat, lng);

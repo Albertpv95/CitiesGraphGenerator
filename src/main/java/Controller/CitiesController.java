@@ -52,6 +52,7 @@ public class CitiesController implements ActionListener {
 
             case SEARCH_CITY:
 
+                view.clearCityResults();
                 searchCity();
 
                 break;
@@ -67,8 +68,6 @@ public class CitiesController implements ActionListener {
             public void onSuccess(String data) {
 
                 currentCities = GeocodeParser.getCityData(data);
-                for (City c : currentCities)
-                    System.out.println(c.toString());
 
                 List<String> namesList = currentCities.stream()
                         .map(City::getAddress)

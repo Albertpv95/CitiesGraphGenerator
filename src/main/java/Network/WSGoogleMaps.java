@@ -21,7 +21,7 @@ public class WSGoogleMaps {
      * This constant must be modified with the KEY value got
      * at <a href="https://developers.google.com/maps/documentation/geocoding/get-api-key">Get API Key</a>.
      */
-    private static final String API_KEY         = "<PUT YOU KEY HERE>";
+    private static String API_KEY         = "<PUT YOU KEY HERE>";
 
     private HttpRequest request;
 
