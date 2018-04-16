@@ -21,10 +21,13 @@ public class Main {
                 CitiesController citiesController = new CitiesController(view);
                 ConnectionsController connectionsController = new ConnectionsController(view);
                 FileMenuController menuController = new FileMenuController(view, connectionsController);
+                SettingsController settingsController = new SettingsController(view);
 
+                settingsController.openKeyDialog();
                 view.addCityPanelListeners(citiesController);
                 view.addConnectionsPanelListeners(connectionsController, connectionsController);
                 view.addMenuListeners(menuController);
+                view.addSettingsListener(settingsController);
             }
         });
 

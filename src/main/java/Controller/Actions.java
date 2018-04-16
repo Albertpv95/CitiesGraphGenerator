@@ -14,6 +14,10 @@ public enum Actions {
     SAVE_AS_FILE,
     ABOUT,
 
-    ADD_ROUTE
+    ADD_ROUTE,
+
+    SET_KEY,
+    UPDATE_KEY,
+    CANCEL_KEY
 
 }

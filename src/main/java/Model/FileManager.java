@@ -53,7 +53,7 @@ public class FileManager {
         private List<City> cities;
         private List<Connection> connections;
 
-        public JsonGraphFormat(List<City> cities, List<Connection> connections) {
+        JsonGraphFormat(List<City> cities, List<Connection> connections) {
             this.cities = cities;
             this.connections = connections;
         }

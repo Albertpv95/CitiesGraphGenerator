@@ -30,6 +30,11 @@ public class WSGoogleMaps {
         this.request = new HttpRequest();
     }
 
+    public static void setApiKey(String key) {
+
+        API_KEY = key;
+    }
+
     /**
      * Calls Google Maps Geocode API to get geocoding data for a given address.
      *

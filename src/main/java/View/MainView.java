@@ -37,6 +37,8 @@ public class MainView extends JFrame {
     private JMenuItem jmiSaveAs;
     private JMenuItem jmAbout;
 
+    private JMenuItem jmKey;
+
 
     public MainView() {
 
@@ -48,6 +50,7 @@ public class MainView extends JFrame {
         this.setVisible(true);
         this.repaint();
         this.setLocationRelativeTo(null);
+        this.setTitle("Cities Graph Generator");
     }
 
     public boolean isConnectionsPanelVisible() {
@@ -86,6 +89,12 @@ public class MainView extends JFrame {
         this.jmAbout.addActionListener(listener);
         this.jmAbout.setActionCommand(Actions.ABOUT.toString());
 
+    }
+
+    public void addSettingsListener(ActionListener listener) {
+
+        this.jmKey.addActionListener(listener);
+        this.jmKey.setActionCommand(Actions.SET_KEY.toString());
     }
 
     public String getCityText() {
@@ -239,10 +248,10 @@ public class MainView extends JFrame {
         JMenuBar jmBar = new JMenuBar();
 
         JMenu jmSettings    = new JMenu("File");
-        jmiImport = new JMenuItem("Open");
-        jmiSave   = new JMenuItem("Save");
-        jmiSaveAs = new JMenuItem("Save as...");
-        jmAbout = new JMenuItem("About");
+        jmiImport   = new JMenuItem("Open");
+        jmiSave     = new JMenuItem("Save");
+        jmiSaveAs   = new JMenuItem("Save as...");
+        jmAbout     = new JMenuItem("About");
 
         jmSettings.add(jmiImport);
         jmSettings.addSeparator();
@@ -252,6 +261,14 @@ public class MainView extends JFrame {
         jmSettings.add(jmAbout);
 
         jmBar.add(jmSettings);
+
+        JMenu jmProgramSettings    = new JMenu("Settings");
+
+        jmKey = new JMenuItem("Set API Key");
+        jmProgramSettings.add(jmKey);
+
+        jmBar.add(jmProgramSettings);
+
 
         return jmBar;
     }
